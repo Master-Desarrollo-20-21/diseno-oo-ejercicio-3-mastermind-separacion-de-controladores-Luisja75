@@ -1,10 +1,12 @@
 package mastermind.views.graphics;
 
-import mastermind.models.Board;
+import mastermind.controllers.ResumeController;
 
 public class ResumeView {
 
-	public ResumeView(Board board) {
+	private ResumeController resumeController;
+	
+	public ResumeView(ResumeController resumeController) {
 		// TODO Auto-generated constructor stub
 	}
 

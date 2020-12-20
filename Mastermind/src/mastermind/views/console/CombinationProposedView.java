@@ -11,6 +11,10 @@ import utils.Console;
 public class CombinationProposedView {
 	private CombinationProposed combinationProposed;
 	
+	public CombinationProposedView() {
+		this.combinationProposed = new CombinationProposed();
+	}
+	
 	public CombinationProposedView(CombinationProposed combinationProposed) {
 		this.combinationProposed = combinationProposed;
 	}

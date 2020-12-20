@@ -1,21 +1,16 @@
 package mastermind.views;
 
-import mastermind.models.Board;
-
 public abstract class View {
-
-	public View(Board board) {
-	}
 	
 	public void interact() {
 		do {
 			this.start();
 			this.showBoard();
-			boolean notFinished;
+			boolean finished;
 			do {
-				notFinished = this.interactBoard();
+				finished = this.interactBoard();
 				this.showBoard();
-			} while (notFinished);
+			} while (!finished);
 			this.showResult();					
 		} while(this.isResumed());
 	}

@@ -1,19 +1,19 @@
 package mastermind.views.console;
 
-import mastermind.models.Board;
+import mastermind.controllers.PlayController;
+import mastermind.controllers.ResumeController;
 import mastermind.views.View;
 
 public class ConsoleView extends View {
 
 	private StartView startView;
-	private BoardView boardView;
+	private PlayView playView;
 	private ResumeView resumeView;
 
-	public ConsoleView(Board board) {
-		super(board);
+	public ConsoleView(PlayController playController, ResumeController resumeController) {
 		this.startView = new StartView();
-		this.boardView = new BoardView(board);
-		this.resumeView = new ResumeView(board);
+		this.playView = new PlayView(playController);
+		this.resumeView = new ResumeView(resumeController);
 	}
 		
 	@Override
@@ -23,12 +23,12 @@ public class ConsoleView extends View {
 
 	@Override
     protected boolean interactBoard() {
-		return this.boardView.interact(); 	
+		return this.playView.interact(); 	
 	}
     
 	@Override
     protected void showBoard() {
-		this.boardView.show();
+		this.playView.show();
 	}
 
 	@Override

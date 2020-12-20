@@ -32,15 +32,15 @@ public class Board {
 	}
 
 	public boolean isFinish() {
-		return (this.currentAttempt <= NUMBER_MAXIMUN_ATTEMPTS && !win);	
+		return (this.currentAttempt >= NUMBER_MAXIMUN_ATTEMPTS || win);	
 	}
 	
 	public boolean isWin() {
 		return win;
 	}
 		
-	public Attempt[] getAttempts(){
-		return this.attempts;
+	public Attempt getAttempt(int i){
+		return this.attempts[i];
 	}
 	
 	public int getCurrentAttempt(){

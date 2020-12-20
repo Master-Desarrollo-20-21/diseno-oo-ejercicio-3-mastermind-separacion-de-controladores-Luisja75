@@ -1,28 +1,29 @@
 package mastermind.views.console;
 
-import mastermind.models.Board;
+import mastermind.controllers.ResumeController;
 import mastermind.views.Message;
-import mastermind.views.WithBoardView;
 import utils.Console;
 import utils.YesNoDialog;
 
-public class ResumeView extends WithBoardView {
-	public ResumeView(Board board) {
-		super(board);
+public class ResumeView {
+	private ResumeController resumeController;
+	
+	public ResumeView(ResumeController resumeController) {
+		this.resumeController = resumeController;
 	}
 
 	public boolean isResumed() {
-		board.reset();
+		this.resumeController.reset();
         return new YesNoDialog(Message.RESUME.getMessage()).read();
 	}
 	
 	public void showResult() {
-		if (this.board.isWin()) {
+		if (this.resumeController.isWin()) {
 			Console.getInstance().writeln(Message.WINNER.getMessage());
 		} else {
 			Console.getInstance().writeln(Message.LOOSER.getMessage());
 			Console.getInstance().write(Message.SECRET_COMBINATION.getMessage());
-			new CombinationSecretView(this.board.getCombinationSecret()).show();
+			new CombinationSecretView(this.resumeController.getCombinationSecret()).show();
 		}
 	}
 }
