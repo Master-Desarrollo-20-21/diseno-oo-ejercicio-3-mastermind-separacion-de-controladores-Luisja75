@@ -1,26 +1,19 @@
 package mastermind;
 
-import mastermind.controllers.PlayController;
-import mastermind.controllers.ResumeController;
-import mastermind.models.Board;
+import mastermind.controllers.Logic;
 import mastermind.views.View;
 
 public abstract class Mastermind { 
 
 	private View view;
-	private Board board;
-	private PlayController playController;
-	private ResumeController resumeController;
+	private Logic logic;
 	
 	public Mastermind() {
-		this.board = new Board();
-		this.playController = new PlayController(board);
-		this.resumeController = new ResumeController(board);
-		
-		this.view = this.createView(playController, resumeController);
+		this.logic = new Logic();
+		this.view = this.createView(logic);
 	}
 	
-	protected abstract View createView(PlayController playController, ResumeController resumeController);
+	protected abstract View createView(Logic logic);
 	
 	protected void play() {
 		view.interact();

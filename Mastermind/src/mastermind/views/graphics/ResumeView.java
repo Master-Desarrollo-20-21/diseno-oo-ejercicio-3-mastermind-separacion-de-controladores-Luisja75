@@ -1,13 +1,12 @@
 package mastermind.views.graphics;
 
-import mastermind.controllers.ResumeController;
+import mastermind.controllers.Logic;
+import mastermind.views.WithLogicView;
 
-public class ResumeView {
+public class ResumeView extends WithLogicView {
 
-	private ResumeController resumeController;
-	
-	public ResumeView(ResumeController resumeController) {
-		// TODO Auto-generated constructor stub
+	public ResumeView(Logic logic) {
+		super(logic);
 	}
 
 	public void showResult() {

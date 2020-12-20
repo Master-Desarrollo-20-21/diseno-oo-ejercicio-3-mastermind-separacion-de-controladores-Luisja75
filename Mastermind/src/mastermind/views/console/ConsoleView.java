@@ -1,7 +1,6 @@
 package mastermind.views.console;
 
-import mastermind.controllers.PlayController;
-import mastermind.controllers.ResumeController;
+import mastermind.controllers.Logic;
 import mastermind.views.View;
 
 public class ConsoleView extends View {
@@ -10,10 +9,10 @@ public class ConsoleView extends View {
 	private PlayView playView;
 	private ResumeView resumeView;
 
-	public ConsoleView(PlayController playController, ResumeController resumeController) {
+	public ConsoleView(Logic logic) {
 		this.startView = new StartView();
-		this.playView = new PlayView(playController);
-		this.resumeView = new ResumeView(resumeController);
+		this.playView = new PlayView(logic);
+		this.resumeView = new ResumeView(logic);
 	}
 		
 	@Override

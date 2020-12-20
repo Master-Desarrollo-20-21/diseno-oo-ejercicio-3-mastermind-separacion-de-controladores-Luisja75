@@ -1,7 +1,6 @@
 package mastermind.views.graphics;
 
-import mastermind.controllers.PlayController;
-import mastermind.controllers.ResumeController;
+import mastermind.controllers.Logic;
 import mastermind.views.View;
 
 public class GraphicsView extends View {
@@ -10,10 +9,10 @@ public class GraphicsView extends View {
 	private PlayView playView;
 	private ResumeView resumeView;
 
-	public GraphicsView(PlayController playController, ResumeController resumeController) {
+	public GraphicsView(Logic logic) {
 		this.startView = new StartView();
-		this.playView = new PlayView(playController);
-		this.resumeView = new ResumeView(resumeController);
+		this.playView = new PlayView(logic);
+		this.resumeView = new ResumeView(logic);
 	}
 		
 	@Override

@@ -1,19 +1,19 @@
 package mastermind.views.console;
 
 import java.util.List;
-import mastermind.controllers.PlayController;
+
+import mastermind.controllers.Logic;
 import mastermind.types.Color;
 import mastermind.types.Error;
 import mastermind.views.ErrorView;
 import mastermind.views.Message;
+import mastermind.views.WithLogicView;
 import utils.Console;
 
-public class CombinationProposedView {
-	
-	private PlayController playController;
-	
-	public CombinationProposedView(PlayController playController) {
-		this.playController = playController;
+public class CombinationProposedView extends WithLogicView {
+		
+	public CombinationProposedView(Logic logic) {
+		super(logic);
 	}
 	
 	public String read() {
@@ -25,7 +25,7 @@ public class CombinationProposedView {
             Console.getInstance().write(Message.PROPOSED_COMBINATION.getMessage());
             characters = Console.getInstance().readString();
 
-            if (characters.length() != playController.getNumColorsCombination()) {
+            if (characters.length() != logic.getNumColorsCombination()) {
                 error = Error.WRONG_LENGTH;
             } else {
                 for (int i = 0; i < characters.length(); i++) {
@@ -71,7 +71,7 @@ public class CombinationProposedView {
 	public void show(int numAttempt) {
 		assert numAttempt >= 0;
 		
-		List<Color> colors = this.playController.getCombinationProposedAttemp(numAttempt).getColors();
+		List<Color> colors = this.logic.getCombinationProposedAttemp(numAttempt).getColors();
 		String list = "";
 		for (Color color: colors)
 		{

@@ -1,30 +1,29 @@
 package mastermind.views.console;
 
-import mastermind.controllers.PlayController;
+import mastermind.controllers.Logic;
 import mastermind.views.Message;
+import mastermind.views.WithLogicView;
 import utils.Console;
 
-public class PlayView {
+public class PlayView extends WithLogicView {
 	
-	private PlayController playController;
-	
-	public PlayView(PlayController playController) {
-		this.playController = playController;
+	public PlayView(Logic logic) {
+		super(logic);
 	}
 
 	public boolean interact() {
-        CombinationProposedView combinationProposedView = new CombinationProposedView(playController);
-        this.playController.addCombinationProposed(combinationProposedView.read());
-        return this.playController.isFinish();
+        CombinationProposedView combinationProposedView = new CombinationProposedView(logic);
+        this.logic.addCombinationProposed(combinationProposedView.read());
+        return this.logic.isFinish();
 	}
 
 	public void show() {
-		Console.getInstance().writeln(Message.ATTEMPTS.getMessage().replace("#NumAttempt",  "" + this.playController.getCurrentAttempt()));
-		new CombinationSecretView(this.playController).showSecret();
-		for (int i=0; i<=this.playController.getCurrentAttempt()-1; i++) {
-			new CombinationProposedView(this.playController).show(i);
-	        Console.getInstance().writeln(Message.RESULT.getMessage().replace("#blacks", "" + this.playController.getNumBlacksAttemp(i))
-	                .replace("#whites", "" + this.playController.getNumWhitesAttemp(i)));			
+		Console.getInstance().writeln(Message.ATTEMPTS.getMessage().replace("#NumAttempt",  "" + this.logic.getCurrentAttempt()));
+		new CombinationSecretView(this.logic).showSecret();
+		for (int i=0; i<=this.logic.getCurrentAttempt()-1; i++) {
+			new CombinationProposedView(this.logic).show(i);
+	        Console.getInstance().writeln(Message.RESULT.getMessage().replace("#blacks", "" + this.logic.getNumBlacksAttemp(i))
+	                .replace("#whites", "" + this.logic.getNumWhitesAttemp(i)));			
 		}
 	}
 }

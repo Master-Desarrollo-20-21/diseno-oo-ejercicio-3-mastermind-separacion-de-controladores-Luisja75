@@ -1,13 +1,12 @@
 package mastermind.views.graphics;
 
-import mastermind.controllers.Controller;
+import mastermind.controllers.Logic;
+import mastermind.views.WithLogicView;
 
-public class CombinationSecretView {
+public class CombinationSecretView extends WithLogicView {
 	
-	private Controller controller;
-	
-	public CombinationSecretView(Controller controller) {
-		this.controller = controller;
+	public CombinationSecretView(Logic logic) {
+		super(logic);
 	}
 
 	public void show() {

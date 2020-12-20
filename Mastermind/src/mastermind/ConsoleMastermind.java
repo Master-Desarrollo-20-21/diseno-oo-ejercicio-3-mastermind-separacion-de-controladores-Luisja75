@@ -1,15 +1,14 @@
 package mastermind;
 
-import mastermind.controllers.PlayController;
-import mastermind.controllers.ResumeController;
+import mastermind.controllers.Logic;
 import mastermind.views.View;
 import mastermind.views.console.ConsoleView;
 
 public class ConsoleMastermind extends Mastermind{
 
 	@Override
-	protected View createView(PlayController playController, ResumeController resumeController) {
-		return new ConsoleView(playController, resumeController);
+	protected View createView(Logic logic) {
+		return new ConsoleView(logic);
 	}
 	
 	public static void main(String[] args) {

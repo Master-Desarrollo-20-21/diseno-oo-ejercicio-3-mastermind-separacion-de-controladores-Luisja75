@@ -1,13 +1,12 @@
 package mastermind.views.graphics;
 
-import mastermind.controllers.PlayController;
+import mastermind.controllers.Logic;
+import mastermind.views.WithLogicView;
 
-public class CombinationProposedView {
+public class CombinationProposedView extends WithLogicView{
 
-	private PlayController playController;
-		
-	public CombinationProposedView(PlayController playController) {
-		this.playController = playController;
+	public CombinationProposedView(Logic logic) {
+		super(logic);
 	}
 		
 	public String read() {

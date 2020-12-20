@@ -1,18 +1,18 @@
 package mastermind.views.graphics;
 
-import mastermind.controllers.PlayController;
+import mastermind.controllers.Logic;
+import mastermind.views.WithLogicView;
 
-public class PlayView {
-	private PlayController playController;
+public class PlayView extends WithLogicView {
 	
-	public PlayView(PlayController playController) {
-		this.playController = playController;
+	public PlayView(Logic logic) {
+		super(logic);
 	}
 
 	public boolean interact() {
-        CombinationProposedView combinationProposedView = new CombinationProposedView(playController);
-        this.playController.addCombinationProposed(combinationProposedView.read());
-        return this.playController.isFinish();
+        CombinationProposedView combinationProposedView = new CombinationProposedView(logic);
+        this.logic.addCombinationProposed(combinationProposedView.read());
+        return this.logic.isFinish();
 	}
 
 	public void show() {
