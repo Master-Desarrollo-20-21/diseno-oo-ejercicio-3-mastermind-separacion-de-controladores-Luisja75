@@ -1,21 +1,16 @@
 package mastermind.views.graphics;
 
-import mastermind.models.CombinationProposed;
+import mastermind.controllers.PlayController;
 
 public class CombinationProposedView {
 
-	private CombinationProposed combinationProposed;
-	
-	public CombinationProposedView() {
-		this.combinationProposed = new CombinationProposed();
+	private PlayController playController;
+		
+	public CombinationProposedView(PlayController playController) {
+		this.playController = playController;
 	}
-	
-	
-	public CombinationProposedView(CombinationProposed combinationProposed) {
-		this.combinationProposed = combinationProposed;
-	}
-
-	public CombinationProposed read() {
+		
+	public String read() {
 		// TODO Auto-generated method stub
 		return null;
 	}

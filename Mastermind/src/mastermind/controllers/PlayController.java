@@ -11,8 +11,8 @@ public class PlayController extends Controller {
 		super(board);
 	}
 	
-	public void addCombinationProposed(CombinationProposed combinationProposed) {
-		this.board.addCombinationProposed(combinationProposed);
+	public void addCombinationProposed(String characters) {
+		this.board.addCombinationProposed(new CombinationProposed(characters));
 	}
 	
 	public boolean isFinish() {
@@ -27,22 +27,24 @@ public class PlayController extends Controller {
 		return this.board.getCurrentAttempt();
 	}
 	
-	private Attempt getAttempt(int i) {
-		return this.board.getAttempt(i);
+	private Attempt getAttempt(int numAttempt) {
+		assert numAttempt >= 0;
+		
+		return this.board.getAttempt(numAttempt);
 	}
 	
-	public CombinationProposed getCombinationProposedAttemp(int i) {
-		Attempt attempt = this.getAttempt(i);
+	public CombinationProposed getCombinationProposedAttemp(int numAttempt) {
+		Attempt attempt = this.getAttempt(numAttempt);
 		return attempt.getCombinationProposed();
 	}
 	
-	public int getNumBlacksAttemp(int i) {
-		Attempt attempt = this.getAttempt(i);
+	public int getNumBlacksAttemp(int numAttempt) {
+		Attempt attempt = this.getAttempt(numAttempt);
 		return attempt.getNumBlacks();
 	}
 
-	public int getNumWhitesAttemp(int i) {
-		Attempt attempt = this.getAttempt(i);
+	public int getNumWhitesAttemp(int numAttempt) {
+		Attempt attempt = this.getAttempt(numAttempt);
 		return attempt.getNumWhites();
-	}
+	}	
 }

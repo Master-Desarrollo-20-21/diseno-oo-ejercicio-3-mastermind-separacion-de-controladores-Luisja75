@@ -10,7 +10,7 @@ public class PlayView {
 	}
 
 	public boolean interact() {
-        CombinationProposedView combinationProposedView = new CombinationProposedView();
+        CombinationProposedView combinationProposedView = new CombinationProposedView(playController);
         this.playController.addCombinationProposed(combinationProposedView.read());
         return this.playController.isFinish();
 	}

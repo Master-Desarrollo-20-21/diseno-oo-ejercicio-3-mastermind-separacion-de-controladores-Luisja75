@@ -1,13 +1,13 @@
 package mastermind.views.graphics;
 
-import mastermind.models.CombinationSecret;
+import mastermind.controllers.Controller;
 
 public class CombinationSecretView {
 	
-	private CombinationSecret combinationSecret;
+	private Controller controller;
 	
-	public CombinationSecretView(CombinationSecret combinationSecret) {
-		this.combinationSecret = combinationSecret;
+	public CombinationSecretView(Controller controller) {
+		this.controller = controller;
 	}
 
 	public void show() {

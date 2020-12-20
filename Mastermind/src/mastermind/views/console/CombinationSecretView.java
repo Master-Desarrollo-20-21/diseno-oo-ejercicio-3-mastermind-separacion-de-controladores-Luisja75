@@ -1,21 +1,20 @@
 package mastermind.views.console;
 
-import mastermind.models.Combination;
-import mastermind.models.CombinationSecret;
+import mastermind.controllers.Controller;
 import mastermind.types.Color;
 import mastermind.views.Message;
 import utils.Console;
 
 public class CombinationSecretView {
-	private CombinationSecret combinationSecret;
+	private Controller controller;
 	
-	public CombinationSecretView(CombinationSecret combinationSecret) {
-		this.combinationSecret = combinationSecret;
+	public CombinationSecretView(Controller controller) {
+		this.controller = controller;
 	}
 	
 	public void show() {
 		String list = "";
-		for (Color color: combinationSecret.getColors())
+		for (Color color: controller.getCombinationSecretColors())
 		{
 			list += color.getKeyword();
 		}
@@ -23,7 +22,7 @@ public class CombinationSecretView {
 	}
 	
 	public void showSecret() {
-		for (int i=0; i<Combination.NUMBER_COLORS; i++)
+		for (int i=0; i<controller.getNumColorsCombination(); i++)
 		{
 			Console.getInstance().write(Message.SECRET.getMessage());
 		}

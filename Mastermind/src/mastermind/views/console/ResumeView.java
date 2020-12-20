@@ -6,6 +6,7 @@ import utils.Console;
 import utils.YesNoDialog;
 
 public class ResumeView {
+	
 	private ResumeController resumeController;
 	
 	public ResumeView(ResumeController resumeController) {
@@ -23,7 +24,7 @@ public class ResumeView {
 		} else {
 			Console.getInstance().writeln(Message.LOOSER.getMessage());
 			Console.getInstance().write(Message.SECRET_COMBINATION.getMessage());
-			new CombinationSecretView(this.resumeController.getCombinationSecret()).show();
+			new CombinationSecretView(this.resumeController).show();
 		}
 	}
 }

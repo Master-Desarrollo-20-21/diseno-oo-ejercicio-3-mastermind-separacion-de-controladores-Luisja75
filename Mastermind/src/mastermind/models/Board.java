@@ -39,8 +39,10 @@ public class Board {
 		return win;
 	}
 		
-	public Attempt getAttempt(int i){
-		return this.attempts[i];
+	public Attempt getAttempt(int numAttempt){
+		assert numAttempt >= 0;
+		
+		return this.attempts[numAttempt];
 	}
 	
 	public int getCurrentAttempt(){

@@ -11,7 +11,6 @@ public class Attempt {
 		assert combinationSecret != null;
 	
 		this.combinationSecret = combinationSecret;
-		this.combinationProposed = new CombinationProposed();
 		numBlacks = 0;
 		numWhites = 0;
 	}
