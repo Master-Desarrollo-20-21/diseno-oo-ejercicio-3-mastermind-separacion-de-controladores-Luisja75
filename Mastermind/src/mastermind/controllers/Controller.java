@@ -28,4 +28,6 @@ public abstract class Controller {
 	public int getCurrentAttempt() {
 		return this.board.getCurrentAttempt();
 	}    
+	
+    public abstract void accept(ControllerVisitor controllerVisitor);	
 }

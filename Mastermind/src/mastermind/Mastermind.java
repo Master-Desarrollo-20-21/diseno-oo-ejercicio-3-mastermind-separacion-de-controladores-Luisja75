@@ -20,7 +20,9 @@ public abstract class Mastermind {
 		Controller controller;
 		do {
 			controller = this.logic.getController();
-			this.view.interact(controller);
+            if (controller != null) {
+                this.view.interact(controller);
+            }			
 		} while (controller != null);
 	}
 }

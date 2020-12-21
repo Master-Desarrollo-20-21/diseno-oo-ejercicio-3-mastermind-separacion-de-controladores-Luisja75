@@ -47,5 +47,10 @@ public class PlayController extends Controller {
 	public int getNumWhitesAttempt(int numAttempt) {
 		Attempt attempt = this.getAttempt(numAttempt);
 		return attempt.getNumWhites();
-	}	
+	}
+	
+    @Override
+    public void accept(ControllerVisitor controllerVisitor) {
+    	controllerVisitor.visit(this);
+    }	
 }

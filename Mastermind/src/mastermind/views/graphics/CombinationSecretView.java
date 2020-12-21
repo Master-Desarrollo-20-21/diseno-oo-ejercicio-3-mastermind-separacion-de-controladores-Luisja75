@@ -1,7 +1,6 @@
 package mastermind.views.graphics;
 
 import mastermind.controllers.Controller;
-import mastermind.controllers.Logic;
 
 public class CombinationSecretView {
 	

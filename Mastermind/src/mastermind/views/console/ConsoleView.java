@@ -21,17 +21,25 @@ public class ConsoleView extends View {
 		this.resultView = new ResultView();
 		this.resumeView = new ResumeView();
 	}
-	
-	@Override
-	public void interact(Controller controller) {
-		if (controller instanceof StartController) {
-			this.startView.interact((StartController) controller);
-		} else if (controller instanceof PlayController) {
-			this.playView.interact((PlayController) controller);
-		} else if (controller instanceof ResultController) {
-			this.resultView.interact((ResultController) controller);
-		} else if (controller instanceof ResumeController) {
-			this.resumeView.interact((ResumeController) controller);
-		}
-	}	
+
+    @Override
+    public void interact(Controller controller) {
+        controller.accept(this);
+    }
+    
+	public void visit(StartController startController) {
+		this.startView.interact(startController);
+	}
+
+	public void visit(PlayController playController) {
+		this.playView.interact(playController);
+	}
+
+	public void visit(ResultController resultController) {
+		this.resultView.interact(resultController);
+	}
+
+	public void visit(ResumeController resumeController) {
+		this.resumeView.interact(resumeController);
+	}
 }

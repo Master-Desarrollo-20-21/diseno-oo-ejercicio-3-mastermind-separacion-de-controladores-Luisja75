@@ -13,4 +13,9 @@ public class ResultController extends Controller {
 		this.state.next();
 		return this.board.isWin();
 	}
+	
+    @Override
+    public void accept(ControllerVisitor controllerVisitor) {
+    	controllerVisitor.visit(this);
+    }		
 }

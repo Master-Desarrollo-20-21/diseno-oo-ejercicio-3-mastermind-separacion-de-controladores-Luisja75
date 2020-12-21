@@ -20,5 +20,10 @@ public class ResumeController extends Controller {
 		
 	public CombinationSecret getCombinationSecret() {
 		return this.board.getCombinationSecret();	
-	}	
+	}
+	
+    @Override
+    public void accept(ControllerVisitor controllerVisitor) {
+    	controllerVisitor.visit(this);
+    }	
 }
