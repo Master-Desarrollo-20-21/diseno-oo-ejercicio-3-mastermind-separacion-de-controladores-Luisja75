@@ -13,7 +13,7 @@ public class ResumeView extends WithLogicView {
 		// TODO Auto-generated method stub	
 	}
 
-	public boolean isResumed() {
+	public boolean interact() {
 		// TODO Auto-generated method stub
 		return false;
 	}

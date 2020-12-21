@@ -52,11 +52,11 @@ public class Logic {
     	return this.playController.getNumWhitesAttemp(numAttempt);
     }
  
-    public int getNumBlacksAttemp(int numAttempt) {
+    public int getNumBlacksAttempt(int numAttempt) {
     	return this.playController.getNumBlacksAttemp(numAttempt);
     }
     
-    public int getNumWhitesAttemp(int numAttempt) {
+    public int getNumWhitesAttempt(int numAttempt) {
     	return this.playController.getNumWhitesAttemp(numAttempt);
     }
     
