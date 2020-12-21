@@ -1,21 +1,15 @@
 package mastermind.views.graphics;
 
-import mastermind.controllers.Logic;
-import mastermind.views.WithLogicView;
+import mastermind.controllers.PlayController;
 
-public class PlayView extends WithLogicView {
+public class PlayView {
 	
-	public PlayView(Logic logic) {
-		super(logic);
+	public boolean interact(PlayController playController) {
+        CombinationProposedView combinationProposedView = new CombinationProposedView(playController);
+        playController.addCombinationProposed(combinationProposedView.read());
+        return playController.isFinish();
 	}
 
-	public boolean interact() {
-        CombinationProposedView combinationProposedView = new CombinationProposedView(logic);
-        this.logic.addCombinationProposed(combinationProposedView.read());
-        return this.logic.isFinish();
-	}
-
-	public void show() {
-		// TODO Auto-generated method stub
+	public void show(PlayController playController) {
 	}
 }

@@ -1,17 +1,14 @@
 package mastermind.views.graphics;
 
+import mastermind.controllers.Controller;
 import mastermind.controllers.Logic;
-import mastermind.views.WithLogicView;
+import mastermind.controllers.PlayController;
 
-public class AttemptView extends WithLogicView {
-	
-	public AttemptView(Logic logic) {
-		super (logic);
+public class AttemptView  {
+		
+	public void showCurrent(Controller controller) {
 	}
 	
-	public void showCurrent() {
-	}
-	
-	public void showResult(int numAttempt) {
+	public void showResult(PlayController playController, int numAttempt) {
 	}	
 }

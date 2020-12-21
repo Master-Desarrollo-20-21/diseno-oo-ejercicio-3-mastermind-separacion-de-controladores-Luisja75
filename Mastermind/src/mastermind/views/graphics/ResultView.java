@@ -1,14 +1,12 @@
 package mastermind.views.graphics;
 
-import mastermind.controllers.Logic;
-import mastermind.views.WithLogicView;
+import mastermind.controllers.ResultController;
 
-public class ResultView extends WithLogicView {
+public class ResultView {
+
+	public void interact(ResultController resultController) {
+	}
 	
-	public ResultView(Logic logic) {
-		super (logic);
-	}
-
-	public void interact() {
-	}
+	private void show(ResultController resultController) {
+	}	
 }

@@ -1,66 +1,29 @@
 package mastermind.controllers;
 
-import java.util.List;
-
+import java.util.HashMap;
+import java.util.Map;
 import mastermind.models.Board;
-import mastermind.models.Combination;
-import mastermind.models.CombinationProposed;
-import mastermind.types.Color;
+import mastermind.models.State;
+import mastermind.models.StateValue;
 
 public class Logic {
 
+	private State state;
     private Board board;
-    private PlayController playController;
-    private ResumeController resumeController;
+    private Map<StateValue, Controller> controllers;
 
     public Logic() {
+		this.state = new State();
         this.board = new Board();
-        this.playController = new PlayController(this.board);
-        this.resumeController = new ResumeController(this.board);
-    }
-    
-    public void reset() {
-    	this.resumeController.reset();
-    }
-    
-    public Boolean isWin() {
-    	return this.resumeController.isWin();
-    }
-    
-    public List<Color> getCombinationSecretColors() {
-    	return this.board.getCombinationSecret().getColors();
-    }
-    
-    public int getNumColorsCombination() {
-    	return Combination.NUMBER_COLORS;
-    }
-    
-    public void addCombinationProposed(String characters) {
-    	this.playController.addCombinationProposed(characters);
-    }
-    
-    
-    public Boolean isFinish() {
-    	return this.playController.isFinish();
+		this.controllers = new HashMap<>();
+		this.controllers.put(StateValue.INITIAL, new StartController(this.board, this.state));
+		this.controllers.put(StateValue.PLAY, new PlayController(this.board, this.state));
+		this.controllers.put(StateValue.RESULT, new ResultController(this.board, this.state));
+		this.controllers.put(StateValue.FINAL, new ResumeController(this.board, this.state));
+		this.controllers.put(StateValue.EXIT, null);        
     }
 
-    public int getCurrentAttempt() {
-    	return this.playController.getCurrentAttempt();
-    }
-
-    public int getCurrentAttempt(int numAttempt) {
-    	return this.playController.getNumWhitesAttemp(numAttempt);
-    }
- 
-    public int getNumBlacksAttempt(int numAttempt) {
-    	return this.playController.getNumBlacksAttemp(numAttempt);
-    }
-    
-    public int getNumWhitesAttempt(int numAttempt) {
-    	return this.playController.getNumWhitesAttemp(numAttempt);
-    }
-    
-    public CombinationProposed getCombinationProposedAttemp(int numAttempt) {
-    	return this.playController.getCombinationProposedAttemp(numAttempt);
-    }
+	public Controller getController() {
+		return this.controllers.get(this.state.getValueState());
+	}
 }

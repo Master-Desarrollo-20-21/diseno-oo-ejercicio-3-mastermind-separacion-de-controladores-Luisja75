@@ -1,6 +1,11 @@
 package mastermind.views.console;
 
+import mastermind.controllers.Controller;
 import mastermind.controllers.Logic;
+import mastermind.controllers.PlayController;
+import mastermind.controllers.ResultController;
+import mastermind.controllers.ResumeController;
+import mastermind.controllers.StartController;
 import mastermind.views.View;
 
 public class ConsoleView extends View {
@@ -11,29 +16,22 @@ public class ConsoleView extends View {
 	private ResumeView resumeView;
 
 	public ConsoleView(Logic logic) {
-		this.startView = new StartView(logic);
-		this.playView = new PlayView(logic);
-		this.resultView = new ResultView(logic);
-		this.resumeView = new ResumeView(logic);
+		this.startView = new StartView();
+		this.playView = new PlayView();
+		this.resultView = new ResultView();
+		this.resumeView = new ResumeView();
 	}
-		
+	
 	@Override
-    protected void start() {
-		this.startView.interact();
-	}
-
-	@Override
-    protected boolean interactBoard() {
-		return this.playView.interact(); 	
-	}
-
-	@Override
-    protected void showResult() {
-		this.resultView.interact();
-	}
-    
-	@Override
-    protected boolean isResumed() {
-		return this.resumeView.interact();
+	public void interact(Controller controller) {
+		if (controller instanceof StartController) {
+			this.startView.interact((StartController) controller);
+		} else if (controller instanceof PlayController) {
+			this.playView.interact((PlayController) controller);
+		} else if (controller instanceof ResultController) {
+			this.resultView.interact((ResultController) controller);
+		} else if (controller instanceof ResumeController) {
+			this.resumeView.interact((ResumeController) controller);
+		}
 	}	
 }

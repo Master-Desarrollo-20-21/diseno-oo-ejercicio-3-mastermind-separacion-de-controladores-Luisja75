@@ -1,20 +1,10 @@
 package mastermind.views.graphics;
 
-import mastermind.controllers.Logic;
-import mastermind.views.WithLogicView;
+import mastermind.controllers.ResumeController;
 
-public class ResumeView extends WithLogicView {
+public class ResumeView {
 
-	public ResumeView(Logic logic) {
-		super(logic);
-	}
-
-	public void showResult() {
-		// TODO Auto-generated method stub	
-	}
-
-	public boolean interact() {
-		// TODO Auto-generated method stub
+	public boolean interact(ResumeController resumeController) {
 		return false;
 	}
 }

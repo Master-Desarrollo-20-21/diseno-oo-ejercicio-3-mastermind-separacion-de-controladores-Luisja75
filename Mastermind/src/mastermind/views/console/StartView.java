@@ -1,19 +1,15 @@
 package mastermind.views.console;
 
-import mastermind.controllers.Logic;
+import mastermind.controllers.StartController;
 import mastermind.views.Message;
-import mastermind.views.WithLogicView;
 import utils.Console;
 
-public class StartView extends WithLogicView {
+public class StartView  {
 	
-	public StartView(Logic logic) {
-		super(logic);
-	}
-	
-	public void interact() {
+	public void interact(StartController startController) {
+		startController.start();
 		Console.getInstance().writeln(Message.TITLE.getMessage());	
-		new AttemptView(this.logic).showCurrent();
-		new CombinationSecretView(this.logic).showSecret();
+		new AttemptView().showCurrent(startController);
+		new CombinationSecretView().showSecret(startController);
 	}
 }
